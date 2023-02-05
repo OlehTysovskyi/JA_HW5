@@ -3,26 +3,38 @@ package source.service.impl;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import source.DAO.ProductDao;
 import source.DAO.Impl.ProductDaoImpl;
 import source.domain.Product;
 import source.service.ProductService;
+import source.service.impl.ProductServiceImpl;
 
-public class ProductServiceImpl implements ProductService{
-
+public class ProductServiceImpl implements ProductService {
 	private ProductDao productDao;
-	
-	public ProductServiceImpl() {
+	private static ProductService productServiceImpl;
+
+	private static Logger LOGGER = Logger.getLogger(ProductServiceImpl.class);
+
+	private ProductServiceImpl() {
 		try {
 			productDao = new ProductDaoImpl();
-		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
+		} catch (SQLException | ClassNotFoundException | InstantiationException | IllegalAccessException e) {
+			LOGGER.error(e);
 		}
-	} 
-	
+	}
+
+	public static ProductService getProductService() {
+		if (productServiceImpl == null) {
+			productServiceImpl = new ProductServiceImpl();
+		}
+		return productServiceImpl;
+	}
+
 	@Override
-	public Product create(Product product) throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException {
-		ProductDao productDao = new ProductDaoImpl();
+	public Product create(Product product)
+			throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException {
 		return productDao.create(product);
 	}
 
@@ -45,7 +57,4 @@ public class ProductServiceImpl implements ProductService{
 	public List<Product> readAll() {
 		return productDao.readAll();
 	}
-
-	
-
 }

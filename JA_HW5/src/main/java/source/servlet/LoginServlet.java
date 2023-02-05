@@ -18,25 +18,27 @@ public class LoginServlet extends HttpServlet {
 	private UserService userService = UserServiceImpl.getUserService();
 
 	@Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("doGet");
-        request.getRequestDispatcher("login.jsp").forward(request,response);
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		request.getRequestDispatcher("login.jsp").forward(request, response);
+	}
 
-    }
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String email = request.getParameter("email");
-        String password = request.getParameter("password");
-        System.out.println(email);
-        
-        User user = userService.getUserByEmail(email);
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String email = request.getParameter("email");
+		String password = request.getParameter("password");
 
-        if (user != null && user.getPassword().equals(password)) {
-            request.setAttribute("email", email);
-            request.getRequestDispatcher("cabinet.jsp").forward(request, response);
-        }else {
-            request.getRequestDispatcher("login.jsp").forward(request, response);
-        }
+		System.out.println(email);
 
-    }
+		User user = userService.getUserByEmail(email);
+
+		if (user != null && user.getPassword().equals(password)) {
+			request.setAttribute("email", email);
+			request.getRequestDispatcher("cabinet.jsp").forward(request, response);
+		} else {
+			request.getRequestDispatcher("login.jsp").forward(request, response);
+		}
+
+	}
 }

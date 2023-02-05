@@ -3,26 +3,38 @@ package source.service.impl;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import source.DAO.BucketDao;
 import source.DAO.Impl.BucketDaoImpl;
 import source.domain.Bucket;
 import source.service.BucketService;
+import source.service.impl.BucketServiceImpl;
 
-public class BucketServiceImpl implements BucketService{
-	
+public class BucketServiceImpl implements BucketService {
 	private BucketDao bucketDao;
+	private static BucketService bucketServiceImpl;
 
-	public BucketServiceImpl() {
+	private static Logger LOGGER = Logger.getLogger(BucketServiceImpl.class);
+
+	private BucketServiceImpl() {
 		try {
 			bucketDao = new BucketDaoImpl();
-		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
-		}	
+		} catch (SQLException | ClassNotFoundException | InstantiationException | IllegalAccessException e) {
+			LOGGER.error(e);
+		}
 	}
-	
+
+	public static BucketService getBucketService() {
+		if (bucketServiceImpl == null) {
+			bucketServiceImpl = new BucketServiceImpl();
+		}
+		return bucketServiceImpl;
+	}
+
 	@Override
-	public Bucket create(Bucket bucket) throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException {
-		BucketDao bucketDao = new BucketDaoImpl();
+	public Bucket create(Bucket bucket)
+			throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException {
 		return bucketDao.create(bucket);
 	}
 
@@ -45,5 +57,4 @@ public class BucketServiceImpl implements BucketService{
 	public List<Bucket> readAll() {
 		return bucketDao.readAll();
 	}
-
 }

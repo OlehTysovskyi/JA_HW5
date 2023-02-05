@@ -23,8 +23,8 @@ public class RegistrationServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		String email = request.getParameter("email");
-		String firstName = request.getParameter("firstname");
-		String lastName = request.getParameter("lastname");
+		String firstName = request.getParameter("firstName");
+		String lastName = request.getParameter("lastName");
 		String password = request.getParameter("password");
 
 		if (!email.isEmpty() && !firstName.isEmpty() && !lastName.isEmpty() && !password.isEmpty()) {
@@ -34,6 +34,7 @@ public class RegistrationServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
+		
 		request.setAttribute("email", email);
 		request.getRequestDispatcher("cabinet.jsp").forward(request, response);
 	}

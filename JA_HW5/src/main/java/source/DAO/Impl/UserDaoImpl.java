@@ -20,14 +20,14 @@ public class UserDaoImpl implements UserDao {
 	private static String READ_BY_ID = "select * from user where id = ?";
 	private static String READ_BY_EMAIL = "select * from user where email = ?";
 	private static String UPDATE_BY_ID = "update user set email = ?, firstname = ?, lastname = ?, role = ?, password = ? where id = ?";
-	private static String DELETE_BY_ID = "delete from user where id=?";
+	private static String DELETE_BY_ID = "delete from user where id = ?";
 
-	private static Logger LOGGER = Logger.getLogger(BucketDaoImpl.class);
+	private static Logger LOGGER = Logger.getLogger(UserDaoImpl.class);
 
 	private Connection connection;
 	private PreparedStatement preparedStatement;
 
-	public UserDaoImpl() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException  {
+	public UserDaoImpl() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException {
 		connection = ConnectionUtils.openConnection();
 	}
 

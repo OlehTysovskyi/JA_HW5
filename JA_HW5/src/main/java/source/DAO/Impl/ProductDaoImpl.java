@@ -21,7 +21,7 @@ public class ProductDaoImpl implements ProductDao {
 	private static String UPDATE_BY_ID = "update product set name = ?, description = ?, price = ? where id = ?";
 	private static String DELETE_BY_ID = "delete from product where id=?";
 
-	private static Logger LOGGER = Logger.getLogger(BucketDaoImpl.class);
+	private static Logger LOGGER = Logger.getLogger(ProductDaoImpl.class);
 
 	private Connection connection;
 	private PreparedStatement preparedStatement;

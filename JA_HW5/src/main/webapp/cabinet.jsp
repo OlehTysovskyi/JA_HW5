@@ -12,6 +12,7 @@
 	.h1{
 		text-align: center;
 		font-size: 50px;
+		font-family: monospace;
 		letter-spacing: 5px;
 		word-spacing: 15px;
 		margin: 200px 0 0;
