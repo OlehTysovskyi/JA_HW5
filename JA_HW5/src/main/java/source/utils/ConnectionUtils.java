@@ -7,14 +7,14 @@ import java.sql.SQLException;
 import org.apache.log4j.xml.DOMConfigurator;
 
 public class ConnectionUtils {
-	
+
 	private static String USER_NAME = "root";
 	private static String USER_PASSWORD = "asdf2005";
-	private static String URL = "jdbc:mysql://localhost/i_shop";
-	
-	public static Connection openConnection() throws SQLException, InstantiationException, IllegalAccessException, ClassNotFoundException {
-		DOMConfigurator.configure("LoggerConfig.xml");
-		Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+	private static String URL = "jdbc:mysql://localhost/i_shop?useUnicode=true&serverTimezone=UTC&useSSL=true&verifyServerCertificate=false";
+
+	public static Connection openConnection() throws ClassNotFoundException, SQLException {
+        DOMConfigurator.configure("C:\\Users\\olegt\\git\\JA_HW5\\JA_HW5\\LoggerConfig.xml");
+		Class.forName("com.mysql.cj.jdbc.Driver");
 		return DriverManager.getConnection(URL, USER_NAME, USER_PASSWORD);
 	}
 }

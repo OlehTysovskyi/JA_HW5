@@ -33,8 +33,7 @@ public class BucketServiceImpl implements BucketService {
 	}
 
 	@Override
-	public Bucket create(Bucket bucket)
-			throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException {
+	public Bucket create(Bucket bucket) {
 		return bucketDao.create(bucket);
 	}
 

@@ -1,7 +1,6 @@
 package source.servlet;
 
 import java.io.IOException;
-import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,20 +22,24 @@ public class RegistrationServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		String email = request.getParameter("email");
-		String firstName = request.getParameter("firstName");
-		String lastName = request.getParameter("lastName");
+		String firstname = request.getParameter("firstname");
+		String lastname = request.getParameter("lastname");
 		String password = request.getParameter("password");
+		
+		System.out.println(email);
+		System.out.println(firstname);
+		System.out.println(lastname);
+		System.out.println(password);
 
-		if (!email.isEmpty() && !firstName.isEmpty() && !lastName.isEmpty() && !password.isEmpty()) {
-			try {
-				userService.create(new User(email, firstName, lastName, UserRole.USER.toString(), password));
-			} catch (InstantiationException | IllegalAccessException | ClassNotFoundException | SQLException e) {
-				e.printStackTrace();
-			}
+
+		if (!email.isEmpty() && !firstname.isEmpty() && !lastname.isEmpty() && !password.isEmpty()) {
+			userService.create(new User(email, firstname, lastname, UserRole.USER.toString(), password));
 		}
 		
-		request.setAttribute("email", email);
-		request.getRequestDispatcher("cabinet.jsp").forward(request, response);
+		response.setContentType("text/plain");
+        response.setCharacterEncoding("UTF-8");
+        response.getWriter().write("Success");
+        
 	}
 
 }

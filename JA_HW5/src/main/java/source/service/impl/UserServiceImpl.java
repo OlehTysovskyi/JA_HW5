@@ -33,8 +33,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public User create(User user)
-			throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException {
+	public User create(User user) {
 		return userDao.create(user);
 	}
 
