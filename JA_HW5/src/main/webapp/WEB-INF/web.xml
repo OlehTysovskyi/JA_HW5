@@ -4,4 +4,14 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>LogoutServet</servlet-name>
+  	<display-name>LogoutServet</display-name>
+  	<description></description>
+  	<servlet-class>source.servlet.LogoutServet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>LogoutServet</servlet-name>
+  	<url-pattern>/LogoutServet</url-pattern>
+  </servlet-mapping>
 </web-app>

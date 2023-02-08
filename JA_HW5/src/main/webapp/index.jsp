@@ -4,23 +4,27 @@
 <html lang="en">
 <head>
 <!-- Required meta tags -->
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Login - IShop</title>
+	
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet"
+		href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+		integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+		crossorigin="anonymous">
+	
+	<link rel="stylesheet"
+		href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+		integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+		crossorigin="anonymous">
+		
+	<link rel="icon"
+		href="https://cdn1.iconfinder.com/data/icons/social-messaging-ui-color-shapes/128/store-circle-blue-512.png"
+		type="image/x-icon"> 
+	
+	<link rel="stylesheet" href="css/login.css">
 
-<!-- Bootstrap CSS -->
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-	integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
-	crossorigin="anonymous">
-
-<link rel="stylesheet"
-	href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
-	integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
-	crossorigin="anonymous">
-
-<link rel="stylesheet" href="css/main.css">
-
-<title>I-Store</title>
 </head>
 
 <body>
@@ -80,7 +84,7 @@
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-	<script src="js/main.js"></script>
+	<script src="js/login.js"></script>
 	
 </body>
 </html>

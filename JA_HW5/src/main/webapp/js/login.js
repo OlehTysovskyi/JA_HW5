@@ -23,7 +23,7 @@ $("button.register").click(function() {
 	if (firstname == '' || lastname == '' || email == ''
 		|| password == '' || cpassword == '') {
 		alert("Please fill all fields!");
-	} else if ((password.length) < 8) {
+	} else if ((password.length) < 0) {
 		alert("Password should atleast 8 character in length...!!!!!!");
 	} else if (!(password).match(cpassword)) {
 		alert("Your passwords don't match. Try again?");

@@ -12,11 +12,12 @@ import org.apache.log4j.Logger;
 
 import source.DAO.UserDao;
 import source.domain.User;
+import source.domain.UserRole;
 import source.utils.ConnectionUtils;
 
 public class UserDaoImpl implements UserDao {
 	private static String READ_ALL = "SELECT * FROM user";
-	private static String CREATE = "insert into user ('email', 'firstname', 'lastname', 'role', 'password') values (?,?,?,?,?)";
+	private static String CREATE = "insert into user (email, firstname, lastname, role, password) values (?,?,?,?,?)";
 	private static String READ_BY_ID = "select * from user where id = ?";
 	private static String READ_BY_EMAIL = "select * from user where email = ?";
 	private static String UPDATE_BY_ID = "update user set email = ?, firstname = ?, lastname = ?, role = ?, password = ? where id = ?";
@@ -38,7 +39,7 @@ public class UserDaoImpl implements UserDao {
 			preparedStatement.setString(1, user.getEmail());
 			preparedStatement.setString(2, user.getFirstname());
 			preparedStatement.setString(3, user.getLastname());
-			preparedStatement.setString(4, user.getRole());
+			preparedStatement.setString(4, UserRole.USER.toString());
 			preparedStatement.setString(5, user.getPassword());
 			preparedStatement.executeUpdate();
 
