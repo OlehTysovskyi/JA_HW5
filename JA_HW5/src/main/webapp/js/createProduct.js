@@ -15,8 +15,20 @@ $("button.createProduct").click(function() {
 			//$("form")[0].reset();
 			//$("form")[1].reset();
 			//showAlertAfterRegistration();
-			alert('Success');
+			alert('Success! You added new product.');
 		}
 	});
 
+});
+
+$("button.buy-product").click(function() {
+	var productId = jQuery(this).attr("product-id");
+
+
+	$.post("bucket", { 'productId': productId }, function(data) {
+		if (data == 'Success') {
+			$('#buyProductModal').modal('hide');
+			alert('Success');
+		}
+	});
 });
