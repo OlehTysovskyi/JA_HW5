@@ -22,13 +22,13 @@ $("button.createProduct").click(function() {
 });
 
 $("button.buy-product").click(function() {
-	var productId = jQuery(this).attr("product-id");
-
+	let productId = jQuery(this).attr("product-id");
 
 	$.post("bucket", { 'productId': productId }, function(data) {
 		if (data == 'Success') {
 			$('#buyProductModal').modal('hide');
-			alert('Success');
+			$('[data-dismiss-modal]').trigger({ type: 'click' });
+			alert('Success! this product is added to bucket.');
 		}
 	});
 });
